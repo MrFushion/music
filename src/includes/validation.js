@@ -57,6 +57,11 @@ export default {
 
         return message
       },
+
+      validateOnBlur: true,
+      validateOnChange: true,
+      validateOnInput: true,
+      validateOnModelUpdate: true,
     })
   },
 }
