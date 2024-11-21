@@ -7,14 +7,18 @@ export default defineStore('user', {
   }),
   actions: {
     async register(values) {
-      await auth.createUserWithEmailAndPassword(values.email, values.password)
-      await userCollection.add({
+      const userCred = await auth.createUserWithEmailAndPassword(values.email, values.password)
+      await userCollection.doc(userCred.user.uid).set({
         name: values.name,
         email: values.email,
         age: values.age,
         country: values.country,
         musictype: values.musictype,
       })
+      await userCred.user.updateProfile({
+        displayName: values.name,
+      })
+
       this.userLoggedIn = true
     },
   },
