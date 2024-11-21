@@ -82,6 +82,24 @@
       </vee-field>
       <ErrorMessage class="text-red-600" name="country" />
     </div>
+    <!--Music-->
+    <div class="mb-3">
+      <label class="inline-block mb-2">Pick your favourite genre</label>
+      <vee-field
+        as="select"
+        name="musictype"
+        class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
+      >
+        <option value="Classic">Classical music</option>
+        <option value="Pop">Pop music</option>
+        <option value="Rock">Rock music</option>
+        <option value="Hiphop">Hip-hop music</option>
+        <option value="Electronic">Electronic music</option>
+        <option value="Folk">Folk music</option>
+        <option value="Other">Other</option>
+      </vee-field>
+      <ErrorMessage class="text-red-600" name="musictype" />
+    </div>
     <!-- TOS -->
     <div class="mb-3 pl-6">
       <vee-field
@@ -116,11 +134,14 @@ export default {
         password: 'required|min:9|max:100|excluded:password',
         confirm_password: 'password_mismatch:@password',
         country: 'required|country_excluded:Antarctica',
+        musictype: 'required',
         tos: 'tos',
       },
       userData: {
         country: 'USA',
+        musictype: 'Other',
       },
+
       reg_in_submission: false,
       reg_show_alert: false,
       reg_alert_variant: 'bg-blue-500',
@@ -149,6 +170,7 @@ export default {
           email: values.email,
           age: values.age,
           country: values.country,
+          musictype: values.musictype,
         })
       } catch (error) {
         this.reg_in_submission = false

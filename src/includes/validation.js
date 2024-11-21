@@ -49,6 +49,7 @@ export default {
           country_excluded: 'Due to restrictions, we do not accept users from this location.',
           password_mismatch: "The passwords don't match.",
           tos: 'You must accept the Terms of Service.',
+          musictype: `Please select a valid music type.`,
         }
 
         const message = messages[ctx.rule.name]
