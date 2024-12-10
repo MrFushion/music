@@ -2,19 +2,36 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/Home.vue'
 import About from '@/views/About.vue'
 import Manage from '@/views/Manage.vue'
+import Error from '@/views/Error.vue'
 
 const routes = [
   {
+    name: 'home',
     path: '/',
     component: Home,
   },
   {
+    name: 'about',
     path: '/about',
     component: About,
   },
   {
-    path: '/manage',
+    name: 'manage',
+    path: '/manage-music',
     component: Manage,
+  },
+  {
+    path: '/manage',
+    redirect: { name: 'manage' },
+  },
+  {
+    name: 'error',
+    path: '/error',
+    component: Error,
+  },
+  {
+    path: '/:catchAll(.*)*',
+    redirect: { name: 'error' },
   },
 ]
 
