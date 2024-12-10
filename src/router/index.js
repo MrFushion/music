@@ -17,8 +17,12 @@ const routes = [
   },
   {
     name: 'manage',
+    // alias: '/manage',
     path: '/manage-music',
     component: Manage,
+    beforeEnter: (to, from, next) => {
+      next()
+    },
   },
   {
     path: '/manage',
@@ -39,6 +43,10 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
   linkExactActiveClass: 'text-yellow-500',
+})
+
+router.beforeEach((to, from, next) => {
+  next()
 })
 
 export default router
