@@ -52,7 +52,7 @@ export default {
     },
     signOut() {
       this.userStore.signOut()
-      if (this.$route.name === 'manage') {
+      if (this.$route.meta.requiresAuth === 'manage') {
         this.$router.push({ name: 'home' })
       }
     },
